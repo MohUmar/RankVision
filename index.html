@@ -914,61 +914,61 @@
         }, 50)
 
     </script>
-    <script>
-        document.getElementById('auditForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
+<script>
+    document.getElementById('auditForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-            // Basic validation
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const website = document.getElementById('website').value.trim();
-            const terms = document.getElementById('terms').checked;
+        // Basic validation
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const website = document.getElementById('website').value.trim();
+        const terms = document.getElementById('terms').checked;
 
-            let valid = true;
+        let valid = true;
 
-            document.getElementById('nameError').style.display = name ? 'none' : 'block';
-            if (!name) valid = false;
+        document.getElementById('nameError').style.display = name ? 'none' : 'block';
+        if (!name) valid = false;
 
-            document.getElementById('emailError').style.display = email ? 'none' : 'block';
-            if (!email) valid = false;
+        document.getElementById('emailError').style.display = email ? 'none' : 'block';
+        if (!email) valid = false;
 
-            document.getElementById('websiteError').style.display = website ? 'none' : 'block';
-            if (!website) valid = false;
+        document.getElementById('websiteError').style.display = website ? 'none' : 'block';
+        if (!website) valid = false;
 
-            document.getElementById('termsError').style.display = terms ? 'none' : 'block';
-            if (!terms) valid = false;
+        document.getElementById('termsError').style.display = terms ? 'none' : 'block';
+        if (!terms) valid = false;
 
-            if (!valid) return;
+        if (!valid) return;
 
-            const btn = document.getElementById('submitBtn');
-            btn.disabled = true;
-            btn.value = 'Sending...';
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.value = 'Sending...';
 
-            try {
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: new FormData(this),
-                    headers: { 'Accept': 'application/json' }
-                });
+        try {
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+            });
 
-                if (response.ok) {
-                    // Close current popup and open success popup
-                    $.fancybox.close();
-                    setTimeout(() => {
-                        $.fancybox.open({ src: '#succsesOrder', type: 'inline' });
-                    }, 300);
-                    this.reset();
-                } else {
-                    alert('Something went wrong. Please try again.');
-                }
-            } catch (err) {
-                alert('Network error. Please try again.');
+            if (response.ok) {
+                // Close current popup and open success popup
+                $.fancybox.close();
+                setTimeout(() => {
+                    $.fancybox.open({ src: '#succsesOrder', type: 'inline' });
+                }, 300);
+                this.reset();
+            } else {
+                alert('Something went wrong. Please try again.');
             }
+        } catch (err) {
+            alert('Network error. Please try again.');
+        }
 
-            btn.disabled = false;
-            btn.textContent = 'Submit';
-        });
-    </script>
+        btn.disabled = false;
+        btn.textContent = 'Submit';
+    });
+</script>
     <script>
   document.getElementById('consultForm').addEventListener('submit', async function (e) {
     e.preventDefault();
