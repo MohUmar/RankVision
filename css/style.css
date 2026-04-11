@@ -1543,3 +1543,49 @@ body:not(.loaded) .popup-decor-top { background: url(../img/bg/popup_decor-top.s
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
+/* ══ HERO OVERLAP FIX ══ */
+
+/* Desktop – increase top padding to clear the header */
+.first-screen {
+  padding-top: 18rem;
+}
+
+.screen-main {
+  padding: 2rem 0 12rem;
+  min-height: 0;
+}
+
+/* Tablet (768px – 1023px) */
+@media screen and (max-width: 1023px) {
+  .first-screen {
+    padding-top: 16rem;
+  }
+  .screen-main {
+    width: 55%;
+    padding: 2rem 0 10rem;
+    min-height: 0;
+  }
+}
+
+/* Mobile (≤767px) */
+@media screen and (max-width: 767px) {
+  .first-screen {
+    padding-top: 12rem;
+  }
+  .screen-main {
+    width: 100%;
+    padding: 2rem 0 26rem;
+    min-height: 0;
+  }
+}
+
+/* Small mobile (≤479px) */
+@media screen and (max-width: 479px) {
+  .first-screen {
+    padding-top: 10rem;
+  }
+  .screen-main {
+    padding-bottom: 22rem;
+  }
+}
